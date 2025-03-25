@@ -1,0 +1,128 @@
+collections in java
+1.Array list
+it is resizeable array in java that is part of the java collections in framework.
+array list can grow or shrink dynamically as elements are added or removed.
+
+simple array list program:
+
+package collections;
+
+import java.util.ArrayList;
+
+public class arraylist {
+
+	public static void main(String[] args) {
+		ArrayList <Integer> number=new ArrayList<>();
+		number.add(10);
+		number.add(20);
+		number.add(30);
+		System.out.println("given array:"+number);
+		System.out.println("size of array:"+number.size());
+		System.out.println("remove element:"+number.remove(1));
+		System.out.println("get element:"+number.get(1));
+	}
+
+}
+
+for array string:
+package collections;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class arraylist {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		ArrayList <Object> details=new ArrayList<>();
+		details.add("nisha");
+		details.add("nisha");
+		System.out.println("given array:"+details);
+		System.out.println("size of array:"+details.size());
+		System.out.println("remove element:"+details.remove(1));
+		System.out.println("get element:"+details.get(1));}
+
+}
+
+
+for input from user:
+
+package collections;
+
+	import java.util.ArrayList;
+	import java.util.Scanner;
+
+	public class arraylist {
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        ArrayList<String> details = new ArrayList<>();
+
+	        // Taking input from the user
+	        System.out.print("Enter the number of elements: ");
+	        int n = sc.nextInt();
+	        sc.nextLine(); // Consume newline
+	        
+	        for (int i = 0; i < n; i++) {
+	            System.out.print("Enter element " + (i + 1) + ": ");
+	            details.add(sc.nextLine());
+	        }
+
+	        System.out.println("Given array: " + details);
+	        System.out.println("Size of array: " + details.size());
+
+	        // Removing an element
+	        System.out.print("Enter index to remove: ");
+	        int removeIndex = sc.nextInt();
+
+	        if (removeIndex >= 0 && removeIndex < details.size()) {
+	            System.out.println("Removed element: " + details.remove(removeIndex));
+	        } else {
+	            System.out.println("Invalid index! No element removed.");
+	        }
+
+	        // Getting an element
+	        System.out.print("Enter index to retrieve element: ");
+	        int getIndex = sc.nextInt();
+	        
+	        if (getIndex >= 0 && getIndex < details.size()) {
+	            System.out.println("Retrieved element: " + details.get(getIndex));
+	        } else {
+	            System.out.println("Invalid index! Cannot retrieve element.");
+	        }
+
+	        sc.close();
+	    }
+	}
+
+removing vowels from a string:
+
+package collections;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Arraylist {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter string: ");
+        String input = sc.nextLine();
+        sc.close();
+        
+        String result = removeVowels(input);
+        System.out.println("String without vowels: " + result);
+    }
+
+    public static String removeVowels(String str) {
+        ArrayList<Character> vowels = new ArrayList<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        StringBuilder result = new StringBuilder();
+        
+        for (char ch : str.toCharArray()) {
+            if (!vowels.contains(ch)) {
+                result.append(ch);
+            }
+        }
+        
+        return result.toString();
+    }
+}
+

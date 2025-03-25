@@ -1,0 +1,141 @@
+java oops
+
+1)INHERITANCE
+acquires properties and behaviour of one class to another class.
+*Super cls
+*Subcls
+is a relationship using extends keyword.
+reusability.
+types of inheritance
+single ->super cls,subcls.
+multilevel ->super cls,subcls with subcls.
+hierarchical ->super cls has muliple subcls.
+multiple ->has supercls not used in java.
+hybrid ->types of inheritance not used in java.
+
+1.bank acc with amount
+
+public class Main {
+    public static void main(String[] args) {
+        Sample sa = new Sample("nisha", 100);
+        System.out.println("Accholder: " + sa.getAccHolder());  
+        System.out.println("Balance: " + sa.getBalance());
+    }
+}
+class Sample {
+    private String accHolder;  
+    private int balance;  
+
+    Sample(String accHolder, int balance) {
+        this.accHolder = accHolder;
+        this.balance = balance;
+    }
+
+    public String getAccHolder() {
+        return accHolder;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+}
+2. with deposited amount
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an account for "sri" with an initial balance of 100
+        Sample sa = new Sample("", 100);
+        System.out.println("Initial Account Holder: " + sa.getAccHolder());
+        System.out.println("Initial Balance: " + sa.getBalance());
+        
+        // Perform deposit
+        sa.deposit(50);  // Deposit 50 into the account
+        
+        // Print updated account details
+        System.out.println("Updated Account Holder: " + sa.getAccHolder());
+        System.out.println("Updated Balance: " + sa.getBalance());
+    }
+}
+
+class Sample {
+    private String accHolder;  // Account holder name
+    private int balance;
+    Sample(String accHolder, int balance) {
+        this.accHolder = accHolder;
+        this.balance = balance;
+    }
+    public String getAccHolder() {
+        return accHolder;
+    }
+    public int getBalance() {
+        return balance;
+    }
+    public void deposit(int amount) {
+        if (amount > 0) {
+            balance += amount;  
+            System.out.println("Deposit successful! New balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+}
+
+3.with withdraw amount
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an account for "nisha" with an initial balance of 1000
+        Sample sa = new Sample("nisha", 1000);
+        System.out.println("Initial Account Holder: " + sa.getAccHolder());
+        System.out.println("Initial Balance: " + sa.getBalance());
+        
+        // Perform deposit
+        sa.deposit(200);  // Deposit 200 into the account
+        
+        // Print updated account details after deposit
+        System.out.println("Updated Account Holder: " + sa.getAccHolder());
+        System.out.println("Updated Balance: " + sa.getBalance());
+
+        // Perform withdrawal
+        sa.withdraw(500);  // Withdraw 500 from the account
+        
+        // Print updated account details after withdrawal
+        System.out.println("Updated Account Holder: " + sa.getAccHolder());
+        System.out.println("Updated Balance: " + sa.getBalance());
+    }
+}
+
+class Sample {
+    private String accHolder; 
+    private int balance;
+    Sample(String accHolder, int balance) {
+        this.accHolder = accHolder;
+        this.balance = balance;
+    }
+    public String getAccHolder() {
+        return accHolder;
+    }
+    public int getBalance() {
+        return balance;
+    }
+    public void deposit(int amount) {
+        if (amount > 0) {
+            balance += amount;  // Increase balance by the deposit amount
+            System.out.println("Deposit successful! New balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+    public void withdraw(int amount) {
+        if (amount > 0) {
+            if (balance >= amount) {
+                balance -= amount;  // Decrease balance by the withdrawal amount
+                System.out.println("Withdrawal successful! New balance: " + balance);
+            } else {
+                System.out.println("Insufficient funds. Withdrawal failed.");
+            }
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+}
