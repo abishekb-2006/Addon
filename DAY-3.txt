@@ -1,0 +1,133 @@
+TASK-1
+
+class BankAccount {
+    private double balance;
+
+    public BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000);
+        account.deposit(500);
+        account.withdraw(200);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
+__________________________________________________________________________________________
+TASK-2
+
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+class Employee extends Person {
+    double salary;
+    double bonus;
+
+    public Employee(String name, int age, double salary, double bonus) {
+        super(name, age);
+        this.salary = salary;
+        this.bonus = bonus;
+    }
+
+    public double calculateTotalSalary() {
+        return salary + bonus;
+    }
+
+    public static void main(String[] args) {
+        Employee emp = new Employee("John", 30, 30000, 5000);
+        System.out.println("Total Salary: " + emp.calculateTotalSalary());
+    }
+}
+
+_______________________________________________________________________________________________
+TASK-3
+
+class OverloadExample {
+    int sum(int a, int b) {
+        return a + b;
+    }
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        OverloadExample obj = new OverloadExample();
+        System.out.println("Sum (int): " + obj.sum(10, 20));
+        System.out.println("Sum (double): " + obj.sum(10.5, 20.5));
+    }
+}
+
+______________________________________________________________________________________________
+TASK-4
+
+import java.util.*;
+
+class Student {
+    String name;
+    int[] marks = new int[3];
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public void assignMarks(int[] marks) {
+        this.marks = marks;
+    }
+
+    public int getTotal() {
+        int total = 0;
+        for (int mark : marks) total += mark;
+        return total;
+    }
+
+    public void displayResult() {
+        System.out.println("Name: " + name);
+        System.out.println("Marks: " + Arrays.toString(marks));
+        System.out.println("Total: " + getTotal());
+    }
+}
+
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Student student = new Student("Alice");
+
+        int[] marks = new int[3];
+        System.out.println("Enter 3 subject marks:");
+        for (int i = 0; i < 3; i++) {
+            marks[i] = sc.nextInt();
+        }
+
+        student.assignMarks(marks);
+        student.displayResult();
+    }
+}
+
+
+
