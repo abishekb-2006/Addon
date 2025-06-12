@@ -1,0 +1,65 @@
+TASK-1
+
+import java.util.*;
+
+public class StudentList {
+    public static void main(String[] args) {
+        ArrayList<String> students = new ArrayList<>();
+        students.add("Arun");
+        students.add("Divya");
+        students.add("Karthik");
+
+        Iterator<String> iterator = students.iterator();
+        System.out.println("Student List:");
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+______________________________________________________________________
+TASK-2
+
+import java.util.*;
+
+public class EmailSet {
+    public static void main(String[] args) {
+        HashSet<String> emails = new HashSet<>();
+
+        emails.add("john@example.com");
+        emails.add("alice@example.com");
+        emails.add("john@example.com"); // duplicate
+        emails.add("bob@example.com");
+
+        System.out.println("Unique Email Addresses:");
+        for (String email : emails) {
+            System.out.println(email);
+        }
+    }
+}
+____________________________________________________________________
+MAIN PROGRAM
+
+import java.util.*;
+
+public class StudentMarks {
+    public static void main(String[] args) {
+        HashMap<String, Integer> marks = new HashMap<>();
+        marks.put("Arun", 85);
+        marks.put("Divya", 92);
+        marks.put("Karthik", 78);
+
+        int total = 0;
+        for (int mark : marks.values()) {
+            total += mark;
+        }
+
+        double average = total / (double) marks.size();
+
+        System.out.println("Student Marks:");
+        for (Map.Entry<String, Integer> entry : marks.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        System.out.println("Average Marks: " + average);
+    }
+}
